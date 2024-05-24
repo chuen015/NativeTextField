@@ -1,0 +1,16 @@
+PODS:
+  - GrowingTextView (0.7.2)
+
+DEPENDENCIES:
+  - GrowingTextView (= 0.7.2)
+
+SPEC REPOS:
+  trunk:
+    - GrowingTextView
+
+SPEC CHECKSUMS:
+  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
+
+PODFILE CHECKSUM: 7f6f786ebebd1daa1f5516dc432b0accfc79c73f
+
+COCOAPODS: 1.14.3

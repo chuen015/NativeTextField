@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import GrowingTextView
 
 class ChatInputTextViewFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
@@ -51,6 +52,10 @@ class ChatInputTextView: NSObject, FlutterPlatformView {
         // set up UITextView appearance
         self.textView.font = UIFont.systemFont(ofSize: 16)
         self.textView.isEditable = true
+        self.textView.placeholder = "Hello World"
+        self.textView.maxLength = 1000
+        self.textView.minHeight = 30
+        self.textView.maxHeight = 200
         
         super.init()
         ChatInputTextView.sharedInstance = self
@@ -79,7 +84,7 @@ class ChatInputTextView: NSObject, FlutterPlatformView {
     }
 }
 
-class ChatInputTextViewImpl: UITextView {
+class ChatInputTextViewImpl: GrowingTextView {
     private let logger = Logger()
     private var methodChannel: FlutterMethodChannel?
     

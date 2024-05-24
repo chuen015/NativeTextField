@@ -45,6 +45,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   }
 
   String _sentText = "";
+  Uint8List? _pastedImage;
 
   Future<dynamic> handleMethodCall(MethodCall call) async {
     switch (call.method) {
@@ -63,7 +64,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
         final String base64String = call.arguments;
         Uint8List data = base64Decode(base64String);
         var size = data.lengthInBytes;
-        sendMessage("Paste image size = $size");
+        print("Paste image size = $size");
+        setState(() {
+          _pastedImage = data;
+        });
         break;
       default:
         print("Unknown method called: ${call.method}");
@@ -73,6 +77,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   void sendMessage(String text) {
     setState(() {
       _sentText = text;
+      _pastedImage = null;
     });
   }
 
@@ -86,7 +91,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
         children: [
           Expanded(
             child: Center(
-              child: Text(_sentText, style: const TextStyle(fontSize: 24.0)),
+              child: _pastedImage != null
+                  ? Image.memory(_pastedImage!)
+                  : Text(_sentText, style: const TextStyle(fontSize: 24.0)),
             ),
           ),
           const Divider(height: 1, color: Colors.blue),

@@ -2,6 +2,10 @@
 
 Utilize native input text components of Android / iOS on a **Flutter** project
 
+https://github.com/chuen015/NativeTextField/assets/15151778/ef121c18-c948-49ee-87a5-1f411175e040
+
+
+
 ### Introduction
 
 Modern chat apps often allow users to paste rich content and send images.

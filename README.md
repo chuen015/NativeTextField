@@ -1,16 +1,22 @@
-# nativetextfield
+### Description
 
-Utilize native input text components on flutter
+Utilize native input text components of Android / iOS on a **Flutter** project
 
-## Getting Started
+### Introduction
 
-This project is a starting point for a Flutter application.
+Modern chat apps often allow users to paste rich content and send images.
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://github.com/chuen015/NativeTextField/assets/15151778/0ccb85cc-a3f3-49fe-8c62-1dc73b53ca58" width="500">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+However, the `TextField` widget in the Flutter SDK currently lacks this feature. On Android, for example, long-pressing the `TextField` does not show the “Paste” option.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To enable the “pasting” of rich content in a TextField, we are utilizing native UI components: EditText on Android and UITextView on iOS. This is achieved by employing [custom platform-specific code](https://docs.flutter.dev/platform-integration/platform-channels, and hosting platform-specific) provided by Flutter, as detailed in the Platform Channels documentation, and hosting platform-specific UI components in a Flutter widget.
+
+For more information, see:
+- [Hosting native iOS views in your Flutter app with Platform Views](https://docs.flutter.dev/platform-integration/ios/platform-views)
+- [Hosting native Android views in your Flutter app with Platform Views](https://docs.flutter.dev/platform-integration/android/platform-views)
+
+
+<img src="https://github.com/chuen015/NativeTextField/assets/15151778/8b945069-a9bf-4821-a8ff-116d5e0c62c2" width="450">
+
+Additionally, the Flutter SDK supports image insertion via the keyboard on Android, as highlighted in [PR](https://github.com/flutter/flutter/pull/110052)
